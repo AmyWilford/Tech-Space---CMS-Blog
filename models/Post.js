@@ -1,44 +1,42 @@
 const {Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Comment extends Model {}
+class Post extends Model {}
 
-Comment.init(
+Post.init(
     {
-        comment_id: {
+        post_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        comment_content: {
+        post_title: {
+            type: DataTypes.STRING,
+            allowNull:false,
+        },
+        post_content:{
             type: DataTypes.TEXT,
             allowNull: false,
         },
         userId: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             references: {
                 model: 'user',
                 key: 'user_id'
             },
         },
-        postId :{
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'post',
-                key: 'id'
-            },
-        },
+    // QUESTION > do we link comments here too?
     },
     {
         sequelize,
         timestamps: true,
-        createdAt: true, //is this right to get time?
-        updatedAt: true, // is this right to get updated time?
+        createdAt: true, //is this right?
+        updatedAt: true, // is this right?
         freezeTableName: true,
         underscored: true,
-        modelName: 'product',
-      }
+        modelName: 'post',
+    }
 )
 
-module.exports = Comment;
+module.exports = Post
