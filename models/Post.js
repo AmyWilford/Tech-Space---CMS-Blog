@@ -15,28 +15,29 @@ Post.init(
             type: DataTypes.STRING,
             allowNull:false,
         },
+        created_at: {
+            type: DataTypes.DATE, 
+            allowNull: false,
+        },
         post_content:{
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        userId: {
+        user_id: {
             type: DataTypes.STRING,
             references: {
                 model: 'user',
                 key: 'user_id'
             },
         },
-    // QUESTION > do we link comments here too?
     },
     {
         sequelize,
         timestamps: true,
-        createdAt: true, //is this right?
-        updatedAt: true, // is this right?
         freezeTableName: true,
         underscored: true,
         modelName: 'post',
     }
 )
 
-module.exports = Post
+module.exports = Post;

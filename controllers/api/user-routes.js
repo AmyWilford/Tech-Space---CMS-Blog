@@ -1,7 +1,23 @@
 const router = require('express').Router();
-const { User } = require('../../models/User');
+const { User } = require('../../models');
 
-// POST route for user signin
+// POST route to create a new user using inputted information
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(()=> {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData)
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
+// POST route for user signin - to send information to session
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -32,7 +48,7 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
-// POST route for user logout
+// POST route for user logout - to send information to session
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

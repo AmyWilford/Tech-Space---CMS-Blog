@@ -1,6 +1,4 @@
 // Import Models
-
-const { BelongsTo } = require('sequelize');
 const Comment = require('./Comment');
 const Post = require('./Post');
 const User = require('./User');

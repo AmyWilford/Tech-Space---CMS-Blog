@@ -15,26 +15,28 @@ Comment.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        userId: {
+        created_at: {
+            type: DataTypes.NOW, 
+            allowNull: false,
+        },
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'user_id'
             },
         },
-        postId :{
+        post_id :{
             type: DataTypes.INTEGER,
             references: {
                 model: 'post',
-                key: 'id'
+                key: 'post_id'
             },
         },
     },
     {
         sequelize,
         timestamps: true,
-        createdAt: true, //is this right to get time?
-        updatedAt: true, // is this right to get updated time?
         freezeTableName: true,
         underscored: true,
         modelName: 'product',
