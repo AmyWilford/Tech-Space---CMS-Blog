@@ -1,0 +1,17 @@
+
+
+header {
+background-color: #182B2B;
+color: #E6FFF5;
+padding: 2rem;
+font-family: 'PT Mono', monospace;
+text-transform: lowercase;
+letter-spacing: .2rem;
+margin-bottom: 3rem;
+}
+h1 {
+    font-size:  5rem;
+}
+main {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

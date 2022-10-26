@@ -6,7 +6,7 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const allPostData = await Post.findAll({
-      attributes: ["post_id", "post_title", "post_content", "created_at"],
+      attributes: ["id", "post_title", "post_content", "created_at"],
     });
 
     const posts = allPostData.map((post) => post.get({ plain: true }));
@@ -32,7 +32,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
       ],
     });
     const post = postData.get({ plain: true });
-    res.render("singleposts", { post, logged_in: req.session.logged_in });
+    res.render("singlepost", { post, logged_in: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(404).json(err);
