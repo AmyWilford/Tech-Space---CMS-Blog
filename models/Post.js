@@ -16,7 +16,7 @@ Post.init(
             allowNull:false,
         },
         created_at: {
-            type: DataTypes.DATE, 
+            type: DataTypes.NOW, 
             allowNull: false,
         },
         post_content:{

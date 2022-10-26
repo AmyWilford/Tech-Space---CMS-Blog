@@ -6,17 +6,13 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const allPostData = await Post.findAll({
-      attributes: [
-        'post_id', 
-        'post_title', 
-        'post_content',
-        'created_at'
-      ], 
+      attributes: ["post_id", "post_title", "post_content", "created_at"],
     });
 
     const posts = allPostData.map((post) => post.get({ plain: true }));
     res.render("homepage", {
       ...posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -29,14 +25,14 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-        include: [
-            {
-                model: Comment,
-            },
-        ],
+      include: [
+        {
+          model: Comment,
+        },
+      ],
     });
-    const post = postData.get({plain: true});
-    res.render('singleposts', {post, logged_in: req.session.logged_in});
+    const post = postData.get({ plain: true });
+    res.render("singleposts", { post, logged_in: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(404).json(err);
@@ -47,15 +43,27 @@ router.get("/post/:id", withAuth, async (req, res) => {
 
 // redirect user to homepage once loggedin - and update session status as loggedin
 // QUESTION SHOULD THE VIEW ACTUALLY CHANGE? COMMENTS?
-router.get('/login', (req, res)=> {
-  try{
-    if(req.session.logged_in) {
-      res.redirect('/');
-    } else {
-      res.render('login')
-    }
-  } catch (err) {
-    res.status(500).json(err);
+
+router.get("/login", (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
   }
-})
+  res.render("login");
+});
+
 module.exports = router;
+
+// router.get("/login", (req, res) => {
+//   try {
+//     if (req.session.logged_in) {
+//       res.redirect("/");
+//     } else {
+//       res.render("login");
+//     }
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+// module.exports = router;

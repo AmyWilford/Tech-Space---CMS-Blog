@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const { Post, Comment, User } = require("../models");
+const router = require('express').Router();
+const { Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET route for my dashboard (TO SHOW: All MY blog posts i already wrote, and the option to add a new blog)
@@ -16,13 +16,14 @@ router.get("/", withAuth, async (req, res) => {
       ],
     });
     const userPosts = userPostData.map((post) => post.get({ plain: true }));
-
-    res.render("dashboard", {
+    res.render('dashboard', {
       userPosts,
-      // logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
+
   } catch (err) {
     res.status(500).json(err);
+    res.redirect('login')
   }
 });
 
