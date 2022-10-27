@@ -1,18 +1,19 @@
-<h2 class="text-center mt-4"> {{userPosts.username}}'s Dashboard</h2>
+<h2 class="text-center mt-4"> USER DASHBOARD</h2>
 
  <div class="text-center mt-4">
             <a class="link" href="/dashboard/new"><button type="submit" class="btn btn-primary w-25 text-center">create a post</button></a>
         </div>
-{{#if posts.length}}
-<div class="container">
-    <h2>available posts:</h2>
-    {{#each posts as |post|}}
+{{#if userPosts.length}}
+<div class="container text-center mt-4">
+  <hr class="pb-4">
+    <h3>YOUR POSTS:</h3>
+    {{#each userPosts as |post|}}
             <div class="row m-3">
                 <div class="card border col-md rounded" style="width: 18rem;">
                     <div class="card-body">
                       <h5 class="card-title font-weight-bold"><a href="/post/{{id}}">{{post.post_title}}</a></h5>
                       <p class="card-text">{{post.post_content}}</p>
-                    <div class="bg-grey">posted by: {{user.username}} on {{format_date dateCreated}}
+                    <div class="bg-grey">posted by: {{user.username}} on {{format_date date_created}}
                     </div>
                 </div>
             </div>
