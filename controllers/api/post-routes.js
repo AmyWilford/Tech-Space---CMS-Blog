@@ -17,6 +17,27 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+
+// router.get("/", withAuth, async (req, res) => {
+//   try {
+//     const commentData = await Comment.findAll({
+//       where: {
+        
+//       }
+//       include: [{ model: User }],
+//     });
+//     const comments = commentData.map((comment) => comment.get({ plain: true }));
+//     console.log("these are the comments "+ comments);
+
+//     res.render("singlepost", { comments, logged_in: req.session.logged_in });
+//   } catch (err) {
+//     console.log("=================");
+//     console.log("nope");
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
 // PUT route to update an existing blog post - url replace with updated dashboard with updated blog post
 router.put("/:id", withAuth, async (req, res) => {
   try {

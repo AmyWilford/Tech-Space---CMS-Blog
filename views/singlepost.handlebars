@@ -1,36 +1,47 @@
 <div class="container">
-        <div class="row m-3">
-            <div class="card border col-md rounded" style="width: 18rem;">
-                <div class="card-body">
-                    <h3 class="card-title font-weight-bold">{{post.post_title}}</h3>
-                    <input type="hidden" name="post-id" value="{{post.id}}"/>
-                    <p class="card-text">{{post.post_content}}</p>
-                    {{!-- WHY IS THIS NOT PULLING CORRECTLY? --}}
-                <div class="bg-grey">posted by: {{user.username}} on {{format_date post.date_created}}</div>
-            </div>
-            {{#each comments as |comment|}}
-            <hr>
-            <div class="flex-col justify-space-between text-center">
-                <p> {{ comment.comment_content }} </p>
-                <p> {{ format_date comment.date_created }}</p>
-            </div>
-            {{/each}}
-            <hr>
-            <h5>Leave a comment:</h5>
-            <form class="form new-comment-form">
-                <div class="form-group">
-                    <textarea id="comment-content" class="form-control" name="comment-content" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-info">Submit Comment</button>
-                </div>
-                </form>
-            </div>
+  <div class="row m-3">
+    <div class="card border col-md rounded" style="width: 18rem;">
+      <div class="card-body">
+        <h3 class="card-title font-weight-bold">{{post.post_title}}</h3>
+        <input type="hidden" name="post-id" value="{{post.id}}" />
+        <p class="card-text">{{post.post_content}}</p>
+        {{! WHY IS THIS NOT PULLING CORRECTLY? }}
+        <div class="font-italic pt-4">original post written by:
+          {{post.user.username}}
+          on
+          {{format_date post.date_created}}</div>
+      </div>
+      {{#each post.comments as |comment|}}
+        <hr />
+        <div class="flex-col justify-space-between text-center bg-light p-3">
+          <p> {{comment.comment_content}} </p>
+          <p> {{format_date comment.date_created}}</p>
+        </div>
+      {{/each}}
+      <hr />
+      <h5>Leave a comment:</h5>
+      <form class="form new-comment-form">
+        <div class="form-group">
+          <textarea
+            id="comment-content"
+            class="form-control"
+            name="comment-content"
+            rows="2"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-info">Submit Comment</button>
+        </div>
+      </form>
     </div>
-    <div class="m-3 text-right">
-        <a class="link" href="/dashboard/edit/{{post.id}}"><button type="submit" id="edit" class="btn btn-info">Edit Post</button></a>
-        <button type="submit" id="delete-button" class="btn btn-danger">Delete Post</button>
-    </div>
+  </div>
+  <div class="m-3 text-right">
+    <a class="link" href="/dashboard/edit/{{post.id}}"><button
+        type="submit"
+        id="edit"
+        class="btn btn-info"
+      >Edit Post</button></a>
+    <button type="submit" id="delete-button" class="btn btn-danger">Delete Post</button>
+  </div>
 </div>
 <script src="/js/comment.js"></script>
- 

@@ -2,22 +2,25 @@ const router = require("express").Router();
 const { Comment, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/", withAuth, async (req, res) => {
-  try {
-    const commentData = await Comment.findAll({
-      include: [{ model: User }],
-    });
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
-    console.log(comments);
+// router.get("/", withAuth, async (req, res) => {
+//   try {
+//     const commentData = await Comment.findAll({
+//       where: {
 
-    res.render("singlepost", { comments, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log("=================");
-    console.log("nope");
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//       }
+//       include: [{ model: User }],
+//     });
+//     const comments = commentData.map((comment) => comment.get({ plain: true }));
+//     console.log("these are the comments "+ comments);
+
+//     res.render("singlepost", { comments, logged_in: req.session.logged_in });
+//   } catch (err) {
+//     console.log("=================");
+//     console.log("nope");
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post("/", withAuth, async (req, res) => {
   console.log("this is connecting ===========");

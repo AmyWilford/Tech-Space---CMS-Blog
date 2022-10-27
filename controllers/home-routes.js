@@ -26,16 +26,18 @@ router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
-        User,
-        {
-          
-          model: Comment,
-          include: [User],
-        },
+        { model: User },
+        { model: Comment },
+        // User,
+        // {
+        //   model: Comment,
+        //   include: [User],
+        // },
       ],
     });
     const post = postData.get({ plain: true });
-    console.log(post);
+    console.log("I am the post/id at home routes================" + JSON.stringify(post));
+
     res.render("singlepost", { post, logged_in: req.session.logged_in });
   } catch (err) {
     console.log(err);
