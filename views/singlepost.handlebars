@@ -5,7 +5,6 @@
         <h3 class="card-title font-weight-bold">{{post.post_title}}</h3>
         <input type="hidden" name="post-id" value="{{post.id}}" />
         <p class="card-text">{{post.post_content}}</p>
-        {{! WHY IS THIS NOT PULLING CORRECTLY? }}
         <div class="font-italic pt-4">original post written by:
           {{post.user.username}}
           on
