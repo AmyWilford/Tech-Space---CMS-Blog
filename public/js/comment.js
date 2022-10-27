@@ -1,25 +1,51 @@
 const post_id = document.querySelector('input[name="post-id"]').value;
+console.log(post_id);
 
 const newCommentHandler = async (event) => {
   event.preventDefault();
-  const comment = document.querySelector("#comment-content").value.trim();
-  if (comment) {
+  const post_content = document.querySelector("#comment-content").value.trim();
+  console.log(post_content);
+  if (post_content) {
     const response = await fetch(`/api/comment`, {
       method: "POST",
-      body: JSON.stringify({ comment, post_id }),
+      body: JSON.stringify({ post_content, post_id }),
       headers: {
         "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
-      document.location.reload();
-      console.log("comment posted");
+      document.location.replace(`/post/${post_id}`);
     } else {
       alert("Failed to create comment");
     }
   }
 };
+
+// const newCommentHandler = async (event) => {
+//   console.log("=====functioning button=======");
+//   event.preventDefault();
+//   const comment = document.querySelector(
+//     'textarea[name="comment-content"]'
+//   ).value;
+//   console.log(comment);
+//   if (comment) {
+//     const response = await fetch(`/api/comment`, {
+//       method: "POST",
+//       body: JSON.stringify({ comment, post_id }),
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
+
+//     if (response.ok) {
+//       document.location.replace("/dashboard");
+//       console.log("comment posted");
+//     } else {
+//       alert("Failed to create comment");
+//     }
+//   }
+// };
 
 // const editFormHandler = async (event) => {
 //   event.preventDefault();
@@ -61,7 +87,7 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .getElementById("new-comment-form")
+  .querySelector(".new-comment-form")
   .addEventListener("submit", newCommentHandler);
 
 document

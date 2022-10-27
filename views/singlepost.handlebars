@@ -9,21 +9,22 @@
                 <div class="bg-grey">posted by: {{user.username}} on {{format_date post.date_created}}</div>
             </div>
             {{#each comments as |comment|}}
-            <section class="flex-col justify-space-between text-center">
-                <h5> {{ comment.comment_content }} </h5>
-                <h5> {{ format_date comment.date_costed }}</h5>
-            </section>
+            <hr>
+            <div class="flex-col justify-space-between text-center">
+                <p> {{ comment.comment_content }} </p>
+                <p> {{ format_date comment.date_created }}</p>
+            </div>
             {{/each}}
             <hr>
-            <form class="form" id="new-comment-form">
-                <h5>Leave a comment</h5>
+            <h5>Leave a comment:</h5>
+            <form class="form new-comment-form">
                 <div class="form-group">
-                    <div class="card-body" id="comment-form">
-                        <textarea id="comment-content" class="form-control" name="comment-content" rows="3"></textarea>
-                    </div>
-                    <button type="submit" id="new-comment-submit" class="btn btn-primary">Submit Comment</button>
+                    <textarea id="comment-content" class="form-control" name="comment-content" rows="3"></textarea>
                 </div>
-            </form>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit Comment</button>
+                </div>
+                </form>
             </div>
     </div>
     <div class="m-3 text-right">

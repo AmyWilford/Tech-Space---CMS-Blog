@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment } = require("../../models");
+const { Comment, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
@@ -8,9 +8,7 @@ router.get("/", withAuth, async (req, res) => {
       include: [{ model: User }],
     });
     const comments = commentData.map((comment) => comment.get({ plain: true }));
-    console.log("=================");
     console.log(comments);
-    console.log("=================");
 
     res.render("singlepost", { comments, loggedIn: req.session.loggedIn });
   } catch (err) {
@@ -25,7 +23,7 @@ router.post("/", withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
     res.status(200).json(newComment);
   } catch (err) {

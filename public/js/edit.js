@@ -1,36 +1,33 @@
-const post_id = document.querySelector('input[name="post-id"]').value;
-console.log(post_id);
-
 const editFormHandler = async (event) => {
   event.preventDefault();
+  const post_id = document.querySelector('input[name="post-id"]').value;
+  const post_title = document.querySelector('input[name="post-title"]').value;
+  const post_content = document.querySelector(
+    'input[name="post-content"]'
+  ).value;
 
-  const postTitle = document.querySelector('input[name="post-title"]').value;
-  const postContent = document.querySelector('textarea[name="post-body"]').value;
-
-  console.log(postTitle);
-  console.log(postContent);
+  console.log(post_title);
+  console.log(post_content);
 
   const response = await fetch(`/api/post/${post_id}`, {
-    method: 'PUT',
+    method: "PUT",
     body: JSON.stringify({
       post_title,
       post_content,
     }),
     headers: {
-      'Content-Type': 'application/json'
-    }
+      "Content-Type": "application/json",
+    },
   });
 
-  console.log(response);
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace("/dashboard");
   } else {
-    alert('Failed to update your post');
+    alert("Failed to update your post");
   }
-  document.location.replace('/dashboard');
+  document.location.replace("/dashboard");
 };
 
-// WHY ONE BUTTON IS SUBMIT AND THE OTHER IS CLICK?
 document
-  .querySelector('#edit-post-form')
-  .addEventListener('submit', editFormHandler);
+  .querySelector(".edit-post-form")
+  .addEventListener("submit", editFormHandler);
