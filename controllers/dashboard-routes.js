@@ -43,7 +43,7 @@ router.get("/new", withAuth, (req, res) => {
 router.get("/edit/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
-    if (!singlePost) {
+    if (!postData) {
       res
         .status(404)
         .json({ message: "Invalid Request: Could not locate post ID" });
@@ -52,14 +52,13 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
     console.log(post);
     res.render("edit-post", {
-      // layout: "dashboard",
       post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log("Could not locate post by ID");
-    res.redirect("login");
-    // res.status(500).json(err);
+    // res.redirect("login");
+    res.status(500).json(err);
   }
 });
 

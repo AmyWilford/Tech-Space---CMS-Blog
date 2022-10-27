@@ -1,41 +1,35 @@
-
-{{!-- show all posts via partials--}}
-
-{{#if loggedIn}}
-
 <div class="container">
-            <h2>{{post.post_title}}</h2>
-                <div class="m-3">
-                    <button type="submit" id="edit" class="btn btn-primary">Edit</button>
-                    <button type="submit" id="delete" class="btn btn-primary">Delete</button>
-                </div>
-                    <div class="row m-3">
-                        <div class="card border col-md rounded" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title font-weight-bold"><a href="/post/{{id}}">{{post.post_title}}</a></h5>
-                              <p class="card-text">{{post.post_content}}</p>
-                            <div class="bg-grey">posted by: {{user.username}} on {{format_date dateCreated}}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="m-3">
-                    <form class="card-body" id="comment-form">
-                        <label class="form-label">Comment</label>
-                        <input id="comment" name="comment-body" class="form-input"/>
-                        <button type="submit" class="btn">Submit Comment</button>
-                     </form>
-                </div>
+        <div class="row m-3">
+            <div class="card border col-md rounded" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title font-weight-bold">{{post.post_title}}</h3>
+                    <input type="hidden" name="post-id" value="{{post.id}}"/>
+                    <p class="card-text">{{post.post_content}}</p>
+                    {{!-- WHY IS THIS NOT PULLING CORRECTLY? --}}
+                <div class="bg-grey">posted by: {{user.username}} on {{format_date post.date_created}}</div>
             </div>
-         </div>
+            {{#each comments as |comment|}}
+            <section class="flex-col justify-space-between text-center">
+                <h5> {{ comment.comment_content }} </h5>
+                <h5> {{ format_date comment.date_costed }}</h5>
+            </section>
+            {{/each}}
+            <hr>
+            <form class="form" id="new-comment-form">
+                <h5>Leave a comment</h5>
+                <div class="form-group">
+                    <div class="card-body" id="comment-form">
+                        <textarea id="comment-content" class="form-control" name="comment-content" rows="3"></textarea>
+                    </div>
+                    <button type="submit" id="new-comment-submit" class="btn btn-primary">Submit Comment</button>
+                </div>
+            </form>
+            </div>
     </div>
-<div class="card">
-    <h3 class="card-header"></h3>
-
+    <div class="m-3 text-right">
+        <a class="link" href="/dashboard/edit/{{post.id}}"><button type="submit" id="edit" class="btn btn-primary">Edit Post</button></a>
+        <button type="submit" id="delete-button" class="btn btn-primary">Delete Post</button>
+    </div>
 </div>
-{{/if}}
-
-{{!-- show comments via partials --}}
-
-{{#if loggedIn}}
-{{!-- Link comment.js script --}}
-{{/if}}
+<script src="/js/comment.js"></script>
+ 

@@ -9,12 +9,10 @@ router.post("/", withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-    console.log(
-      "\nNEW POST CREATED \n"
-    );
+    console.log("\nNEW POST CREATED \n");
     res.status(200).json(newPost);
   } catch (err) {
-    console.log('could not create post')
+    console.log("could not create post");
     res.status(500).json(err);
   }
 });
@@ -24,7 +22,7 @@ router.put("/:id", withAuth, async (req, res) => {
   try {
     const updatedPost = await Post.update(req.body, {
       where: {
-        id: req.params.id,
+        post_id: req.params.id,
       },
     });
     if (!updatedPost) {
@@ -46,10 +44,9 @@ router.delete("/:id", withAuth, async (req, res) => {
       },
     });
     if (!postData) {
-      res.status(404).json({ message: "Could not locate blog post" });
+      res.status(404).json({ message: "Could not delete blog post" });
     }
     res.status(200).json(postData);
-    return;
   } catch (err) {
     res.status(404).json(err);
   }
