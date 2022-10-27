@@ -22,7 +22,7 @@ router.put("/:id", withAuth, async (req, res) => {
   try {
     const updatedPost = await Post.update(req.body, {
       where: {
-        post_id: req.params.id,
+        id: req.params.id,
       },
     });
     if (!updatedPost) {

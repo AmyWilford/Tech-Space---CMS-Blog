@@ -3,7 +3,6 @@ const editFormHandler = async (event) => {
   const post_id = document.querySelector('input[name="post-id"]').value;
   const post_title = document.querySelector('input[name="post-title"]').value;
   const user_id = document.querySelector('input[name="user-id"]').value;
-
   const post_content = document.querySelector(
     'input[name="post-content"]'
   ).value;
