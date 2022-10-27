@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
 const { Post, Comment, User } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -36,7 +35,6 @@ router.get("/", withAuth, async (req, res) => {
 router.get("/new", withAuth, (req, res) => {
   console.log("arriving at new post");
   res.render("newpost", {
-    // layout: "dashboard",
   });
 });
 

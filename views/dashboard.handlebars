@@ -1,19 +1,18 @@
-<h2 class="text-center mt-4"> USER DASHBOARD</h2>
-
+<h2 class="text-center mt-4"> welcome to your dashboard</h2>
  <div class="text-center mt-4">
-            <a class="link" href="/dashboard/new"><button type="submit" class="btn btn-primary w-25 text-center">create a post</button></a>
-        </div>
+    <a class="link" href="/dashboard/new"><button type="submit" class="btn btn-info px-5 text-center">+ WRITE A POST</button></a>
+  </div>
 {{#if userPosts.length}}
 <div class="container text-center mt-4">
   <hr class="pb-4">
-    <h3>YOUR POSTS:</h3>
+    <h5>YOUR POSTS:</h5>
     {{#each userPosts as |post|}}
             <div class="row m-3">
                 <div class="card border col-md rounded" style="width: 18rem;">
                     <div class="card-body">
                       <h5 class="card-title font-weight-bold"><a href="/post/{{id}}">{{post.post_title}}</a></h5>
                       <p class="card-text">{{post.post_content}}</p>
-                    <div class="bg-grey">posted by: {{user.username}} on {{format_date date_created}}
+                    <div class="bg-secondary py-2 text-white">written by {{user.username}} <br> {{format_date date_created}}
                     </div>
                 </div>
             </div>

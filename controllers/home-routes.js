@@ -28,6 +28,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
       include: [
         User,
         {
+          
           model: Comment,
           include: [User],
         },

@@ -1,13 +1,13 @@
 {{#if posts.length}}
-<div class="container">
-    <h2>available posts:</h2>
+<div class="container text-center">
+    <h5>Recent Posts:</h5>
     {{#each posts as |post|}}
-            <div class="row mt-3">
+            <div class="row mt-3 justify-content-center">
                 <div class="card border col-8 rounded" style="width: 18rem;">
                     <div class="card-body">
                       <h5 class="card-title font-weight-bold"><a href="/post/{{id}}">{{post.post_title}}</a></h5>
                       <p class="card-text">{{post.post_content}}</p>
-                    <div class="bg-grey">posted by: {{user.username}} on {{format_date date_created}}
+                    <div class="bg-secondary py-2 text-white">posted written by {{user.username}} <br> {{format_date date_created}}
                     </div>
                 </div>
             </div>
