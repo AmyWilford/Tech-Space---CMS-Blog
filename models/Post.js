@@ -12,31 +12,34 @@ Post.init(
       autoIncrement: true,
     },
     post_title: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(30),
       allowNull: false,
-    },
-    created_at: {
-      type: DataTypes.NOW,
-      allowNull: false,
+      unique: true,
     },
     post_content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
+    },
+    date_created: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
-        key: "id",
+        model: 'user',
+        key: 'id',
       },
     },
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "post",
+    modelName: 'post',
   }
 );
 

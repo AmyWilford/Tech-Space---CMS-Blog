@@ -1,17 +1,16 @@
-<section>
-        <a href="/dashboard" back to dashboard</a>
+<div class="container mt-4">
     <h2>Create a new post</h2>
-    <form id="new-post-form">
+    <form class="mt-4"id="new-post-form">
         <div class="form-group">
-            <label for="title">TITLE:</label>
-            <input type="text" placeholder="title" name="post-title" id="post-title">
+            <label for="title">Your Post:</label>
+            <input type="text" class="form-control" id="post-title" name="post-title" placeholder="your post title">
         </div>
         <div class="form-group">
-            <label for="title">YOUR COPY HERE</label>
-            <input type="text" placeholder="Once upon a time..." name="post-content" id="post-title">
-        </div>
-        <button type="submit" class="btn btn-primary">Publish Post</button>
-    </form>
-</section>
+            <label for="content">Post Body</label>
+            <textarea class="form-control" placeholder="Once upon a time..." name="post-content" id="post-content" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form> 
+</div>
 
-<script src="js/newpost.js"></script>
+<script src="/js/newpost.js"></script>

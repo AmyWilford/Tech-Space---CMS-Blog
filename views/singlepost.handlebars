@@ -1,0 +1,21 @@
+
+{{!-- show all posts via partials--}}
+
+{{#if loggedIn}}
+<div class="card">
+    <h3 class="card-header"></h3>
+    <form class="card-body" id="comment-form">
+
+        <label class="form-label">Comment</label>
+        <input id="comment" name="comment-body" class="form-input" />
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+{{/if}}
+
+{{!-- show comments via partials --}}
+
+{{#if loggedIn}}
+{{!-- Link comment.js script --}}
+{{/if}}

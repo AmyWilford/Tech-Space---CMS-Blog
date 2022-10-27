@@ -32,15 +32,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard">Dashboard</a>
                         </li>
-                        {{#if logged_in}}
-                            <li class="nav-item">
-                            <a class="nav-link"><button class="no-button" id="logout">logout</button></a>
-                            </li>
-                        {{else}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">login</a>
-                        </li>
-                        {{/if}}
                         </ul>
                     </div>
                     </nav>
@@ -48,15 +39,25 @@
             </div>
     </header>
     <main>
-        {{{body}}}
+        <div class="container">
+            <h2>{{post.post_title}}</h2>
+                    <div class="row m-3">
+                        <div class="card border col-md rounded" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title font-weight-bold"><a href="/post/{{id}}">{{post.post_title}}</a></h5>
+                              <p class="card-text">{{post.post_content}}</p>
+                            <div class="bg-grey">posted by: {{user.username}} on {{format_date dateCreated}}</div>
+                        </div>
+                        <
+                    </div>
+                </div>
+            </div>
     </main>
     <footer>
     </footer>
 
     </div>
     
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+
 </body>
 </html>
