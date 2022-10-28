@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Comment, User } = require("../models");
+const { Post, Comment, User } = require("../Moxdels");
 const withAuth = require("../utils/auth");
 
 // GET route to show all blog posts (TO SHOW: Post Tile, Date Created) - show blog posts without login status

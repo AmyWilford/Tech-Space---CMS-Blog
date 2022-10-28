@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Comment, User } = require("../models");
+const { Post, Comment, User } = require("../Moxdels");
 const withAuth = require("../utils/auth");
 
 // GET route for my dashboard (TO SHOW: All MY blog posts i already wrote, and the option to add a new blog)
