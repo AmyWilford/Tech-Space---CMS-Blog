@@ -13,6 +13,7 @@ router.post("/", withAuth, async (req, res) => {
     res.status(200).json(newPost);
   } catch (err) {
     console.log("could not create post");
+    console.log(err);
     res.status(500).json(err);
   }
 });
