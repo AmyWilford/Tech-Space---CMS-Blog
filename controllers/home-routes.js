@@ -20,19 +20,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET route to show single blog post by ID (TO SHOW:  Post Title, Contents, Author, Date Created  + Option to add comment)
-// Only show information if logged in
+// GET route to show single blog post by ID
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         { model: User },
         { model: Comment },
-        // User,
-        // {
-        //   model: Comment,
-        //   include: [User],
-        // },
+
       ],
     });
     const post = postData.get({ plain: true });

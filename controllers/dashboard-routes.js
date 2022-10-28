@@ -48,14 +48,12 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     }
 
     const post = postData.get({ plain: true });
-    console.log("this is a post"+post);
     res.render("edit-post", {
       post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log("Could not locate post by ID");
-    // res.redirect("login");
     res.status(500).json(err);
   }
 });
