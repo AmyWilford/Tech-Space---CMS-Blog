@@ -30,7 +30,7 @@ Welcome to techspace. A CMS style website that allows users to write and post bl
 ## Installation:
 
 This application requires npm package dependencies.
-For installation, in your terminal command line, run:
+To run this application locally on your computer, in your terminal command line, run:
 ```
 npm install
 ```
@@ -68,7 +68,7 @@ Once you are logged in to the site you can see a full list of all posts already 
 
 ## Demo:
 
-[View Deployed Application on Heroku]()
+[View Deployed Application on Heroku](https://radiant-plains-16714.herokuapp.com/)
 
 
 <img src="public/images/deployed site - create post.png" width="200px" alt="deployed site - userdashboard">
