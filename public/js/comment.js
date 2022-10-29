@@ -1,6 +1,8 @@
+// Get post_id
 const post_id = document.querySelector('input[name="post-id"]').value;
 console.log(post_id);
 
+// Event handler function for new comment creation on button click
 const newCommentHandler = async (event) => {
   event.preventDefault();
   const comment_content = document
@@ -26,6 +28,7 @@ const newCommentHandler = async (event) => {
   }
 };
 
+// Event handler to delte a post on a button click
 const delButtonHandler = async (event) => {
   const response = await fetch(`/api/post/${post_id}`, {
     method: "DELETE",
@@ -37,6 +40,7 @@ const delButtonHandler = async (event) => {
   }
 };
 
+// Link event handlers to specified areas in linked html
 document
   .querySelector(".new-comment-form")
   .addEventListener("submit", newCommentHandler);

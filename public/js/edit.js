@@ -1,3 +1,4 @@
+// Event handler to manage blog post editting 
 const editFormHandler = async (event) => {
   event.preventDefault();
   const post_id = document.querySelector('input[name="post-id"]').value;
@@ -31,6 +32,7 @@ const editFormHandler = async (event) => {
   document.location.replace("/dashboard");
 };
 
+// Call event handler function on submit of the edit post form
 document
   .querySelector(".edit-post-form")
   .addEventListener("submit", editFormHandler);

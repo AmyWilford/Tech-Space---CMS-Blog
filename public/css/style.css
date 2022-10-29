@@ -1,5 +1,4 @@
-
-
+/* Establish header styles */
 header {
 background-color: #182B2B;
 color: #E6FFF5;
@@ -9,9 +8,11 @@ text-transform: lowercase;
 letter-spacing: .2rem;
 margin-bottom: 3rem;
 }
+/* Establish Heading Size */
 h1 {
     font-size:  5rem;
 }
+/* Establish page wide font style */
 main {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

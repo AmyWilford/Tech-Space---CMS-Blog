@@ -2,12 +2,14 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
+// Establish model instance to check password upon user login
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+// Initialize a Model name User with id, username, email
 User.init(
   {
     id: {
@@ -29,6 +31,7 @@ User.init(
       },
     },
   },
+  // Hooks to check password before user creation and update
   {
     hooks: {
       beforeCreate: async (newUserData) => {

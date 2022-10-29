@@ -27,13 +27,11 @@ router.get("/", withAuth, async (req, res) => {
     });
   } catch (err) {
     console.log("could not load posts");
-    console.log(err);
     res.status(500).json(err);
   }
 });
 
 router.get("/new", withAuth, (req, res) => {
-  console.log("arriving at new post");
   res.render("newpost", {
   });
 });

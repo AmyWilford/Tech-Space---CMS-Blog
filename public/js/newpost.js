@@ -1,3 +1,4 @@
+// Event Handler to manager creation of new post
 async function newFormHandler(event) {
   event.preventDefault();
 
@@ -23,7 +24,7 @@ async function newFormHandler(event) {
     }
   }
 }
-
+// Link Event handler to new-post-form in linked HTML
 document
   .getElementById("new-post-form")
   .addEventListener("submit", newFormHandler);

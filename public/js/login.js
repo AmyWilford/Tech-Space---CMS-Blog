@@ -1,3 +1,4 @@
+// Event handler to manage user login
 const loginFormHandler = async (event) => {
   event.preventDefault();
   const username = document.querySelector("#username-login").value.trim();
@@ -18,6 +19,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+// Event handler to manager new user signup
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -39,6 +41,7 @@ const signupFormHandler = async (event) => {
   }
 };
 
+// Link Event Handler Functions to linked HTML
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);

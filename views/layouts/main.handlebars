@@ -1,21 +1,25 @@
+{{!-- Main Handlebars layout - all additional code place within {{{body}}} within main element tag --}}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechSpace</title>
+    {{!-- Import bootstrap --}}
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    {{!-- Import google font styles --}}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap"
       rel="stylesheet"
     />
+    {{!-- Link css stylesheet --}}
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
@@ -28,17 +32,6 @@
           </div>
           <div class="col d-flex justify-content-end align-items-center">
             <nav class="navbar navbar-expand-lg">
-              {{! <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button> }}
               <div id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
@@ -48,6 +41,7 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                   </li>
+                  {{!-- If logged in user will see logout button --}}
                   {{#if logged_in}}
                     <li class="nav-item">
                       <a class="nav-link"><button
@@ -56,6 +50,7 @@
                         >logout</button></a>
                     </li>
                   {{else}}
+                  {{!-- Else, if not logged in user will see a login link --}}
                     <li class="nav-item">
                       <a class="nav-link" href="/login">login</a>
                     </li>
@@ -74,6 +69,7 @@
 
     </div>
 
+{{!-- If user is logged in - this page will have access to logout.js to handle logout function --}}
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
     {{/if}}

@@ -1,3 +1,4 @@
+// File to establish connection with database using sequelize and JAWSDB for Heroku Deployment
 const Sequelize = require('sequelize');
 require('dotenv').config();
 

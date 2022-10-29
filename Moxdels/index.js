@@ -1,8 +1,9 @@
-// Import Models
+// Import all Models
 const Comment = require("./Comment");
 const Post = require("./Post");
 const User = require("./User");
 
+// Establish relationships between all Models
 User.hasMany(Post, {
   foreignKey: "user_id",
   onDelete: "CASCADE"

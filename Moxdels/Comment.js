@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
+// Initialize a Model name comment with id, comment_content, date_create, and post_id columns
 class Comment extends Model {}
 
 Comment.init(
@@ -21,13 +22,6 @@ Comment.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "user",
-    //     key: "id",
-    //   },
-    // },
     post_id: {
       type: DataTypes.INTEGER,
       references: {

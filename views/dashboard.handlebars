@@ -1,7 +1,10 @@
+{{!-- Dashboard Handlebars to manage individual users dashboard to show user posts and option to make new post --}}
 <h2 class="text-center mt-4"> welcome to your dashboard</h2>
  <div class="text-center mt-4">
+  {{!-- Button for user to create a new post --}}
     <a class="link" href="/dashboard/new"><button type="submit" class="btn btn-info px-5 text-center">+ WRITE A POST</button></a>
   </div>
+  {{!-- If the user has an posts - loop through them and create a div with the specified details --}}
 {{#if userPosts.length}}
 <div class="container text-center mt-4">
   <hr class="pb-4">

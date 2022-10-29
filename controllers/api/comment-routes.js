@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Comment } = require("../../Moxdels");
 const withAuth = require("../../utils/auth");
 
+// POST route to write a new comment
 router.post("/", withAuth, async (req, res) => {
   console.log("this is connecting ===========");
   console.log(req.body);
