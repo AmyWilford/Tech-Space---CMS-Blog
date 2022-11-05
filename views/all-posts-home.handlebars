@@ -1,21 +1,30 @@
 {{!-- All-posts-handlebar - ie. homepage that shows all available posts from all users. If there are any posts the following code will run --}}
 {{#if posts.length}}
-<div class="container text-center">
-    <h5>Recent Posts:</h5>
+<div class="container w-100">
+    <div class="row justify-content-center">
+        <div class="col-10">
+        <h5>Recent <span class="icon-text">techspace</span> Posts:</h5>
+        </div>
+    </div>
     {{!-- Loop through available posts and create the div tag with unique post information in each--}}
     {{#each posts as |post|}}
             <div class="row mt-3 justify-content-center">
-                <div class="card border col-8 rounded" style="width: 18rem;">
+                <div class="card border col-10 rounded text-left" style="width: 18rem;">
                     <div class="card-body">
                       <h5 class="card-title font-weight-bold"><a href="/post/{{id}}">{{post.post_title}}</a></h5>
                       <p class="card-text">{{post.post_content}}</p>
-                    <div class="bg-secondary py-2 text-white">posted written by {{user.username}} <br> {{format_date date_created}}
+                    <div class="bg-light p-2 text-secondary font-italic">posted by: {{user.username}} <br> posted on: {{format_date date_created}}
                     </div>
                 </div>
             </div>
             </div>
       {{/each}}
 <div>
+    {{else}}
+    <div class="container text-center w-75 welcome-alert">
+        <h3 class="mb-4">Welcome to <span class="icon-text">techspace</span></h3>
+        <p class="h5">It looks like no one has posted yet - but, you can be the first! Go to your user dashboard to create the first <span class="icon-text">techspace</span> entry</p>
+    </div>
 {{/if}}
 
 

@@ -1,12 +1,14 @@
-// Event handler to manage blog post editting 
+// Event handler to manage blog post editting
 const editFormHandler = async (event) => {
   event.preventDefault();
   const post_id = document.querySelector('input[name="post-id"]').value;
   const post_title = document.querySelector('input[name="post-title"]').value;
   const user_id = document.querySelector('input[name="user-id"]').value;
-  const post_content = document.querySelector(
-    'input[name="post-content"]'
-  ).value;
+  // const post_content = document.querySelector(
+  //   'input[name="post-content"]'
+  // ).value;
+  const post_content = document.querySelector("#post-content").value;
+
   console.log(user_id);
   console.log(post_id);
   console.log(post_title);
@@ -29,10 +31,12 @@ const editFormHandler = async (event) => {
   } else {
     alert("Failed to update your post");
   }
-  document.location.replace("/dashboard");
+  document.location.replace(`/dashboard/post/${post_id}`);
 };
 
 // Call event handler function on submit of the edit post form
 document
   .querySelector(".edit-post-form")
   .addEventListener("submit", editFormHandler);
+
+

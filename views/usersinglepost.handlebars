@@ -14,14 +14,16 @@
       {{! If that post has any comments - loop through them to show  }}
       {{#each post.comments as |comment|}}
         <hr />
-        <div class="bg-light p-2">
+        <div class="bg-light p-3">
           <p> {{comment.comment_content}} </p>
-          <p class="font-italic"> posted on: {{format_date comment.date_created}}</p>
+          <p class="font-italic">
+            posted on:
+            {{format_date comment.date_created}}</p>
         </div>
       {{/each}}
       <hr />
       {{! Form to leave a comment on a post }}
-      <h5>Leave a comment:</h5>
+      {{! <h5>Leave a comment:</h5>
       <form class="form new-comment-form">
         <div class="form-group">
           <textarea
@@ -34,10 +36,10 @@
         <div class="form-group">
           <button type="submit" class="btn btn-info">Submit Comment</button>
         </div>
-      </form>
+      </form> }}
     </div>
   </div>
-  {{!-- <div class="m-3 text-right">
+  <div class="m-3 text-right">
     <a class="link" href="/dashboard/edit/{{post.id}}"><button
         type="submit"
         id="edit"
@@ -45,6 +47,7 @@
       >Edit Post</button></a>
     <button type="submit" id="delete-button" class="btn btn-danger">Delete Post</button>
   </div>
-</div> --}}
+</div>
 {{! Connection to comment.js file link event handlers }}
-<script src="/js/comment.js"></script>
+{{! <script src="/js/comment.js"></script> }}
+<script src="/js/delete.js"></script>

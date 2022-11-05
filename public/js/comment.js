@@ -28,23 +28,23 @@ const newCommentHandler = async (event) => {
   }
 };
 
-// Event handler to delte a post on a button click
-const delButtonHandler = async (event) => {
-  const response = await fetch(`/api/post/${post_id}`, {
-    method: "DELETE",
-  });
-  if (response.ok) {
-    document.location.replace("/dashboard");
-  } else {
-    alert(response.statusText);
-  }
-};
+// // Event handler to delte a post on a button click
+// const delButtonHandler = async (event) => {
+//   const response = await fetch(`/api/post/${post_id}`, {
+//     method: "DELETE",
+//   });
+//   if (response.ok) {
+//     document.location.replace("/dashboard");
+//   } else {
+//     alert(response.statusText);
+//   }
+// };
 
 // Link event handlers to specified areas in linked html
 document
   .querySelector(".new-comment-form")
   .addEventListener("submit", newCommentHandler);
 
-document
-  .getElementById("delete-button")
-  .addEventListener("click", delButtonHandler);
+// document
+//   .getElementById("delete-button")
+//   .addEventListener("click", delButtonHandler);

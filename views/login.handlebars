@@ -1,60 +1,83 @@
-{{!-- Login page that shows option for user to login or create an account --}}
-<div class="row">
-  <div class="col-md-6 text-center">
-    <h3>LOGIN</h3>
-
+{{! Login page that shows option for user to login or create an account }}
+<div class="row d-flex flex-column align-content-center">
+  <div class="col-sm-5 m-5 text-center border rounded">
+    <h5 class="pt-3">login to your account</h5>
     <form class="form login-form mt-3">
-      <div class="form-group">
+      <div class="form-outline mb-4">
         <label for="username-login"></label>
-        <input
-          class="form-input text-center"
-          type="text"
-          id="username-login"
-          placeholder="username"
-        />
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="username-login"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
       </div>
-      <div class="form-group">
+      <div class="form-outline mb-4">
         <label for="password-login"></label>
         <input
-          class="form-input text-center"
+          class="form-control"
           type="password"
           id="password-login"
           placeholder="password"
         />
       </div>
+      <div class="login-warning text-danger font-italic mb-3" style = "display: none"> Something is missing. <br>Please make sure you've entered the correct login details</div>
       <div class="form-group">
-        <button class="btn px-5 btn-info mt-3" type="submit">login</button>
+        <button
+          class="btn btn-block px-5 btn-info mb-4"
+          type="submit"
+        >login</button>
       </div>
     </form>
   </div>
-  <div class="col-md-6 text-center">
+  <div class="col-sm-5 m-5 text-center border rounded">
 
-    <h3>CREATE AN ACCOUNT</h3>
+    <h5 class="pt-3">not yet a user?</h5>
+    <h5>create a new account</h5>
 
     <form class="form signup-form mt-3">
-      <div class="form-group">
+      <div class="form-outline mb-4">
+        
         <label for="username-signup"></label>
-        <input
-          class="form-input text-center"
-          type="text"
-          id="username-signup"
-          placeholder="enter a username"
-        />
-      </div>
-      <div class="form-group">
+         <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="username-signup"
+            placeholder="enter a username or email address"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      <div class="form-outline mb-4">
         <label for="password-signup"></label>
         <input
-          class="form-input text-center"
+          class="form-control"
           type="password"
           id="password-signup"
-          placeholder="enter a password"
+          placeholder="create a password - minimum 8 characters"
         />
       </div>
+      <div class="signup-warning text-danger mb-3 font-italic" style = "display: none"> Something is missing. <br>Please enter a valid username or email address with a password length of 8+ characters long</div>
       <div class="form-group">
-        <button class="btn px-5 btn-info mt-3" type="submit">signup</button>
+        <button
+          class="btn px-5 btn-block btn-info mb-4"
+          type="submit"
+        >signup</button>
       </div>
     </form>
   </div>
 </div>
-{{!-- Link to login.js file to link event handlers --}}
+
+{{! Link to login.js file to link event handlers }}
 <script src="./js/login.js"></script>

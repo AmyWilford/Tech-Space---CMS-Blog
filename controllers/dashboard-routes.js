@@ -31,9 +31,25 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
+router.get("/post/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: User }, { model: Comment }],
+    });
+    const post = postData.get({ plain: true });
+    console.log(
+      "I am the post/id at home routes================" + JSON.stringify(post)
+    );
+
+    res.render("usersinglepost", { post, logged_in: req.session.logged_in });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get("/new", withAuth, (req, res) => {
-  res.render("newpost", {
-  });
+  res.render("newpost", {});
 });
 
 router.get("/edit/:id", withAuth, async (req, res) => {

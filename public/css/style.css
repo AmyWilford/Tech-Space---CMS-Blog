@@ -1,18 +1,31 @@
 /* Establish header styles */
 header {
 background-color: #182B2B;
-color: #E6FFF5;
+color: #9BD2DC;
 padding: 2rem;
 font-family: 'PT Mono', monospace;
 text-transform: lowercase;
 letter-spacing: .2rem;
 margin-bottom: 3rem;
 }
-/* Establish Heading Size */
-h1 {
-    font-size:  5rem;
+/* Navbar Styles */
+
+ .nav-link, a, a:visited, .nav-link:visited, .custom-link {
+    font-size: 1.2rem;
+    color:#15A2B8 ;
+} 
+.nav-link:hover, a:hover, .custom-link:hover{
+    color:#9BD2DC;
+    text-decoration: none;
 }
+
 /* Establish page wide font style */
 main {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-family: 'Lato', sans-serif;
+}
+
+.icon-text {
+    font-family: 'PT Mono', monospace;
+    text-transform: lowercase;
+    font-size: 1.3rem;
 }

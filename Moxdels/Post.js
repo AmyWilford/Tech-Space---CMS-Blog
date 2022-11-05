@@ -18,9 +18,8 @@ Post.init(
       unique: true,
     },
     post_content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
-      unique: true,
     },
     date_created: {
       type: DataTypes.DATEONLY,
