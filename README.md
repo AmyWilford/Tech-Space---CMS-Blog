@@ -1,5 +1,7 @@
 # Tech-Space---CMS-Blog
 
+<img src="public/images/deployed site - user dashboard.png" width="700px" alt="deployed site - userdashboard">
+
 ## Table of Contents:
 
 - [Description](#description)
