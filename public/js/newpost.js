@@ -22,6 +22,9 @@ async function newFormHandler(event) {
     } else {
       alert(response.statusText);
     }
+  } else {
+    document.getElementById("postWarning").innerHTML =
+      "your post must have a title and content";
   }
 }
 // Link Event handler to new-post-form in linked HTML
