@@ -3,7 +3,14 @@
 <div class="container w-100">
     <div class="row justify-content-center">
         <div class="col-10">
-        <h5>Recent <span class="icon-text">techspace</span> Posts:</h5>
+        <h5>RECENT COMMUNITY POSTS:</h5>
+                          {{#if logged_in}}
+                          <p>Have something you want to add? Go to your <a href="/dashboard">user dashboard</a> to write a post.</p>
+                          {{else}}
+                          <p><a href="/login">Login</a> or <a href="/login">create an account</a> to contribute to the techspace community.</p>
+                          {{/if}}
+
+        <p></p>
         </div>
     </div>
     {{!-- Loop through available posts and create the div tag with unique post information in each--}}

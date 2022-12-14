@@ -1,31 +1,34 @@
+
 /* Establish header styles */
 header {
-background-color: #182B2B;
-color: #9BD2DC;
-padding: 2rem;
-font-family: 'PT Mono', monospace;
+background-color: #FF914D;
+padding: 1rem;
+font-family: 'Montserrat', sans-serif;
 text-transform: lowercase;
-letter-spacing: .2rem;
-margin-bottom: 3rem;
+margin-bottom: 2rem;
+
 }
 /* Navbar Styles */
-
- .nav-link, a, a:visited, .nav-link:visited, .custom-link {
-    color:#15A2B8 ;
+.nav-link, .custom-link , .nav-link:visited, .custom-link:hover {
+    font-size: .8rem;
+    color: white;
+}
+a, a:visited {
+    color:#FF914D;
     text-align: right;
 } 
-.nav-link:hover, a:hover, .custom-link:hover{
-    color:#9BD2DC;
+.nav-link:hover, a:hover {
+    color:#004AAD ;
     text-decoration: none;
 }
 
 /* Establish page wide font style */
 main {
-font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
 }
 
 .icon-text {
-    font-family: 'PT Mono', monospace;
+    font-family: 'Montserrat', sans-serif;
     text-transform: lowercase;
-    font-size: 1.3rem;
 }
