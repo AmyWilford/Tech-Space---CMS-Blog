@@ -11,8 +11,8 @@ margin-bottom: 3rem;
 /* Navbar Styles */
 
  .nav-link, a, a:visited, .nav-link:visited, .custom-link {
-    font-size: 1.2rem;
     color:#15A2B8 ;
+    text-align: right;
 } 
 .nav-link:hover, a:hover, .custom-link:hover{
     color:#9BD2DC;

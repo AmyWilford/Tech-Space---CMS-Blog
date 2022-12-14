@@ -25,21 +25,24 @@
       <header>
         <div class="row">
           <div class="col">
-            <h2 id="logo">tech.<br />space</h2>
+            <a href="/">
+            <img src="../images/techspace-logo.png"></img>
+            </a>
           </div>
           <div class="col d-flex justify-content-end align-items-center">
             <nav class="navbar navbar-expand-lg">
               <div id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item active">
+                  {{!-- <li class="nav-item active">
                     <a class="nav-link" href="/">home
                       <span class="sr-only">(current)</span></a>
-                  </li>
+                  </li> --}}
+                  
+                  {{! If logged in user will see logout button }}
+                  {{#if logged_in}}
                   <li class="nav-item">
                     <a class="nav-link" href="/dashboard">dashboard</a>
                   </li>
-                  {{! If logged in user will see logout button }}
-                  {{#if logged_in}}
                     <li class="nav-item">
                       <a class="nav-link"><button
                           class="btn btn-link p-0 custom-link"
