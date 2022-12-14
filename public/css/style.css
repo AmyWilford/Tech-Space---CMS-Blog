@@ -32,3 +32,24 @@ main {
     font-family: 'Montserrat', sans-serif;
     text-transform: lowercase;
 }
+.custom-button {
+    background-color: #004AAD;
+    color: white;
+    text-transform: uppercase;
+}
+.custom-button:hover {
+    background-color: #FF914D;
+}
+.user-box {
+    width: 325px;
+}
+::-webkit-input-placeholder {
+    font-size: .75rem;
+ }
+
+@media only screen and (max-width: 480px) {
+    .user-box {
+      width: 85%
+  }
+  
+  }

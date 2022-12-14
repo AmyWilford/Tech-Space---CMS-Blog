@@ -3,7 +3,7 @@
   <div class="row m-3">
     <div class="card border col-md rounded" style="width: 18rem;">
       <div class="card-body">
-        <h3 class="card-title font-weight-bold">{{post.post_title}}</h3>
+        <h5 class="card-title font-weight-bold text-uppercase">{{post.post_title}}</h5>
         <input type="hidden" name="post-id" value="{{post.id}}" />
         <p class="card-text">{{post.post_content}}</p>
         <div class="font-italic pt-4">original post written by:
@@ -21,7 +21,7 @@
       {{/each}}
       <hr />
       {{! Form to leave a comment on a post }}
-      <h5>Leave a comment:</h5>
+      <p class="text-uppercase">Leave a comment:</p>
       <form class="form new-comment-form">
         <div class="form-group">
           <textarea
@@ -32,19 +32,11 @@
           ></textarea>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-info">Submit Comment</button>
+          <button type="submit" class="btn custom-button">Submit Comment</button>
+          <p id="commentWarning" class="font-italic text-danger pt-3"></p>
         </div>
       </form>
     </div>
   </div>
-  {{!-- <div class="m-3 text-right">
-    <a class="link" href="/dashboard/edit/{{post.id}}"><button
-        type="submit"
-        id="edit"
-        class="btn btn-info"
-      >Edit Post</button></a>
-    <button type="submit" id="delete-button" class="btn btn-danger">Delete Post</button>
-  </div>
-</div> --}}
-{{! Connection to comment.js file link event handlers }}
+
 <script src="/js/comment.js"></script>

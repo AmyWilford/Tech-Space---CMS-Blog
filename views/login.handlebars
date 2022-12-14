@@ -1,10 +1,10 @@
 {{! Login page that shows option for user to login or create an account }}
-<div class="row d-flex flex-column align-content-center">
-  <div class="col-sm-5 m-5 text-center border rounded">
-    <h5 class="pt-3">login to your account</h5>
+<div class="d-flex flex-column align-items-center">
+  <div class="col-sm-5 user-box border rounded my-2">
+    <p class="pt-3 text-uppercase">login to your account</p>
     <form class="form login-form mt-3">
       <div class="form-outline mb-4">
-        <label for="username-login"></label>
+        <label for="username-login"><small>email:</small></label>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">@</span>
@@ -13,65 +13,65 @@
             type="text"
             class="form-control"
             id="username-login"
-            placeholder="Username"
             aria-label="Username"
             aria-describedby="basic-addon1"
+            required
           />
         </div>
       </div>
       <div class="form-outline mb-4">
-        <label for="password-login"></label>
+        <label for="password-login"><small>password:</small></label>
         <input
           class="form-control"
           type="password"
           id="password-login"
-          placeholder="password"
+          required
         />
       </div>
-      <div class="login-warning text-danger font-italic mb-3" style = "display: none"> Something is missing. <br>Please make sure you've entered the correct login details</div>
+      <div class="login-warning text-danger font-italic mb-3" style = "display: none"> Incorrect login details.</div>
       <div class="form-group">
         <button
-          class="btn btn-block px-5 btn-info mb-4"
+          class="btn btn-block px-5 custom-button mb-4"
           type="submit"
         >login</button>
       </div>
     </form>
   </div>
-  <div class="col-sm-5 m-5 text-center border rounded">
+  <div class="col-sm-5 user-box border rounded ">
 
-    <h5 class="pt-3">not yet a user?</h5>
-    <h5>create a new account</h5>
+    <p class="text-uppercase pt-3">not yet a user? create a new account</p>
 
     <form class="form signup-form mt-3">
       <div class="form-outline mb-4">
         
-        <label for="username-signup"></label>
+        <label for="username-signup"><small>email:</small></label>
          <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">@</span>
           </div>
           <input
-            type="text"
+            type="email"
             class="form-control"
             id="username-signup"
-            placeholder="enter a username or email address"
             aria-label="Username"
             aria-describedby="basic-addon1"
+            required
           />
         </div>
       <div class="form-outline mb-4">
-        <label for="password-signup"></label>
+        <label for="password-signup"><small>password:</small></label>
         <input
           class="form-control"
           type="password"
-          id="password-signup"
-          placeholder="create a password - minimum 8 characters"
+          id="password-signup" 
+          placeholder="minimum 8 characters"
+          required
         />
       </div>
-      <div class="signup-warning text-danger mb-3 font-italic" style = "display: none"> Something is missing. <br>Please enter a valid username or email address with a password length of 8+ characters long</div>
+      <div class="signup-warning text-danger mb-3 font-italic" style = "display: none"> Password must be at least 8 characters long</div>
       <div class="form-group">
         <button
-          class="btn px-5 btn-block btn-info mb-4"
+          class="btn px-5 btn-block custom-button mb-4"
           type="submit"
         >signup</button>
       </div>

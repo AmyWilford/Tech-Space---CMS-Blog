@@ -1,6 +1,8 @@
 {{! HTML form to create a new post }}
 <div class="container mt-4">
-  <h3>create a new post</h3>
+  <div class="mb-3 text-right">
+    <a href="/dashboard"> ﹤back to dashboard</a></div>
+  <h5 class="text-uppercase">create a new post</h5>
   <form class="mt-4" id="new-post-form">
     <div class="form-group">
       <label for="title">Your Post:</label>
@@ -22,7 +24,7 @@
         rows="5"
       ></textarea>
     </div>
-    <button type="submit" class="btn btn-info">Submit</button>
+    <button type="submit" class="btn custom-button">Submit</button>
   </form>
 </div>
 {{! Connection to newpost.js to link event handlers }}

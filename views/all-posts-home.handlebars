@@ -18,7 +18,7 @@
             <div class="row mt-3 justify-content-center">
                 <div class="card border col-10 rounded text-left" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title font-weight-bold"><a href="/post/{{id}}">{{post.post_title}}</a></h5>
+                      <p class="card-title font-weight-bold text-uppercase "><a href="/post/{{id}}">{{post.post_title}}</a></p>
                       <p class="card-text">{{post.post_content}}</p>
                     <div class="bg-light p-2 text-secondary font-italic">posted by: {{user.username}} <br> posted on: {{format_date date_created}}
                     </div>
@@ -30,7 +30,8 @@
     {{else}}
     <div class="container text-center w-75 welcome-alert">
         <h3 class="mb-4">Welcome to <span class="icon-text">techspace</span></h3>
-        <p class="h5">It looks like no one has posted yet - but, you can be the first! Go to your user dashboard to create the first <span class="icon-text">techspace</span> entry</p>
+        <p>Be the first to share your expertise with the techspace community!</p>
+        <p>Go to your <a href="/dashboard">user dashboard</a> to write a post.</p>
     </div>
 {{/if}}
 

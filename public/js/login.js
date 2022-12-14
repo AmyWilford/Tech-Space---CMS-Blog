@@ -3,8 +3,8 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
   const username = document.querySelector("#username-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
+  const warning = document.querySelector(".login-warning");
   if (!username || !password) {
-    const warning = document.querySelector(".login-warning");
     warning.style.display = "block";
   } else if (username && password) {
     const response = await fetch("/api/user/login", {
@@ -16,7 +16,8 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/");
     } else {
-      alert(response.statusText);
+      warning.style.display = "block";
+      // alert(response.statusText);
     }
   }
 };
@@ -27,7 +28,7 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
 
-  if (!username || !password) {
+  if (!username || !password || password.length < 8) {
     const warning = document.querySelector(".signup-warning");
     warning.style.display = "block";
   } else if (username && password) {

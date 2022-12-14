@@ -1,27 +1,26 @@
 {{!-- Dashboard Handlebars to manage individual users dashboard to show user posts and option to make new post --}}
 <div class="container">
   <div class="row m-3 d-flex justify-content-between">
-<h3 class="mt-4"> welcome to your dashboard</h3>
+<h4 class="mt-4"> welcome to your dashboard</h4>
  <div class="mt-4">
   {{!-- Button for user to create a new post --}}
-    <a class="link" href="/dashboard/new"><button type="submit" class="btn btn-info px-5 text-center">+ WRITE A POST</button></a>
+    <a class="link" href="/dashboard/new"><button type="submit" class="custom-button btn px-5 text-center">+ WRITE A POST</button></a>
   </div>
   </div>
-
 </div>
 
   {{!-- If the user has an posts - loop through them and create a div with the specified details --}}
 {{#if userPosts.length}}
 <div class="container mt-4">
   <div class="row m-3 d-flex justify-content-between">
-    <h5>your posts:</h5>
+    <p class="font-weight-bold text-uppercase">your posts:</p>
 
   </div>
     {{#each userPosts as |post|}}
             <div class="row m-3">
                 <div class="card border col-md rounded" style="width: 18rem;">
                     <div class="card-body text-left">
-                      <h5 class="card-title font-weight-bold"><a href="/dashboard/post/{{id}}">{{post.post_title}}</a></h5>
+                      <p class="card-title font-weight-bold text-uppercase"><a href="/dashboard/post/{{id}}">{{post.post_title}}</a></p>
                       <p class="card-text ">{{post.post_content}}</p>
                     <div class="bg-light py-2 text-secondary p-2 font-italic">posted by: {{user.username}} <br> posted on: {{format_date date_created}}
                     </div>
@@ -30,8 +29,8 @@
             </div>
       {{/each}}
       {{else}}
-          <div class="container w-75 welcome-alert"> 
-            <p class="h5 mt-5">You haven't posted yet. Create your first <span class="icon-text">techspace</span> entry</p>
+          <div class="container welcome-alert text-right"> 
+            <p class="m-3">You haven't posted yet. Let's get writing!</p>
           </div>
 <div>
 {{/if}}

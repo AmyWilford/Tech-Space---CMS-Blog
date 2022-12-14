@@ -1,5 +1,7 @@
 {{! HTML to view single post and pull in that posts details}}
 <div class="container">
+  <div class="mb-3 text-right">
+    <a href="/dashboard"> ﹤back to dashboard</a></div>
   <div class="row m-3">
     <div class="card border col-md rounded" style="width: 18rem;">
       <div class="card-body">
@@ -43,9 +45,13 @@
     <a class="link" href="/dashboard/edit/{{post.id}}"><button
         type="submit"
         id="edit"
-        class="btn btn-info"
+        class="btn custom-button"
       >Edit Post</button></a>
-    <button type="submit" id="delete-button" class="btn btn-danger">Delete Post</button>
+    <button
+      type="submit"
+      id="delete-button"
+      class="btn text-uppercase btn-danger"
+    >Delete Post</button>
   </div>
 </div>
 {{! Connection to comment.js file link event handlers }}

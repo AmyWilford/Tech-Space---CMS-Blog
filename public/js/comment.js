@@ -17,7 +17,6 @@ const newCommentHandler = async (event) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("this is ok");
 
     if (response.ok) {
       console.log("this is ok");
@@ -25,6 +24,9 @@ const newCommentHandler = async (event) => {
     } else {
       alert("Failed to create comment");
     }
+  } else {
+    document.getElementById("commentWarning").innerHTML =
+      "you cannot leave an empty comment";
   }
 };
 

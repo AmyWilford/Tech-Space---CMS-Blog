@@ -1,5 +1,7 @@
 {{! HTML Form to edit existing post }}
 <div class="container mt-4">
+  <div class="mb-3 text-right">
+    <a href="/dashboard"> ﹤back to dashboard</a></div>
   <div class="card border">
     <h3 class="card-header">Edit Post</h3>
     <form class="card-body edit-post-form">
@@ -22,14 +24,14 @@
         <label class="form-label" for="content">Make edits to your post body</label>
         <br />
         <textarea
-          class="form-input p-3"
+          class="form-input p-3 border border-secondary"
           id="post-content"
           style="height: 400px; width: 90%; "
           name="post-content"
         >{{post.post_content}}</textarea>
       </div>
-      <div class="text-right">
-        <button class="btn btn-info mt-4 px-4" type="submit">EDIT</button>
+      <div>
+        <button class="btn custom-button mt-4 px-4" type="submit">EDIT</button>
       </div>
     </form>
   </div>
